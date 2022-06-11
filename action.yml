@@ -1,0 +1,20 @@
+name: Simple git push action
+description: Push GitHub action output into your repository
+author: atosinu
+inputs:
+  file_pattern:
+    description: Files pattern to add, wildcards supported
+    required: false
+    default: ./*.*
+runs:
+  using: composite
+  steps:
+    - run: |
+        git config user.name "atosinu/simple-push-action"
+        git config user.email "atosinu@gmail.com"
+        git add ${{ inputs.file_pattern }}
+        git diff-index --quiet HEAD || git commit -m "[Update] Action output" && git push
+      shell: bash
+branding:
+  icon: corner-right-up
+  color: blue
