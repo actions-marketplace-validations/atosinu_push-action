@@ -1,4 +1,4 @@
-name: Simple git push action
+name: Git Push Action By Atosinu
 description: Push GitHub action output into your repository
 author: atosinu
 inputs:
